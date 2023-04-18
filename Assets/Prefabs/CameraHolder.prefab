@@ -182,6 +182,7 @@ MonoBehaviour:
   sensX: 400
   sensY: 400
   orientation: {fileID: 0}
+  camHolder: {fileID: 339076825497456830}
 --- !u!1 &3285147113083573628
 GameObject:
   m_ObjectHideFlags: 0
