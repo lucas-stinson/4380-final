@@ -45,7 +45,7 @@ public class Shooting : MonoBehaviour
                     Vector3 hitPoint = hit.point; //This is the point where the object was hit
                     float distance = Vector3.Distance(objectHit.transform.position, hitPoint);
                     //Debug.Log("Distance from center: " + distance);
-                    Debug.Log("Hit point: " + hitPoint + ", Target position: " + objectHit.transform.position + ", Distance: " + distance);
+                    //Debug.Log("Hit point: " + hitPoint + ", Target position: " + objectHit.transform.position + ", Distance: " + distance);
                     //Debug.Log("target position: " + objectHit.transform.position);
 
                     hit.collider.gameObject.GetComponent<Target>().Shot(distance); //We pass the distance from center to the function
