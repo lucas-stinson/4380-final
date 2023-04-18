@@ -17,12 +17,12 @@ TagManager:
   - 
   - 
   - Ground
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Wallrun Enabled
+  - Climbing Enabled
+  - Ground/Wallrun
+  - Ground/Climb
+  - Wallrun/Climb
+  - Ground/Wallrun/Climb
   - 
   - 
   - 
