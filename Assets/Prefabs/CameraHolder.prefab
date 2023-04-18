@@ -180,3 +180,4 @@ MonoBehaviour:
   sensX: 400
   sensY: 400
   orientation: {fileID: 0}
+  camHolder: {fileID: 339076825497456830}
