@@ -20,12 +20,13 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Movement Variables")]
     public float walkSpeed;
-    public float sprintSpeed;
-    private float moveSpeed;
+    public float sprintSpeed; 
     public float slideSpeed;
     public float climbSpeed;
     public float wallrunSpeed;
     public float groundDrag;
+
+    public float moveSpeed;
 
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
@@ -181,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.air;
         }
 
-        if(Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && moveSpeed != 0) //instantly change speed for short distances such as walk -> sprint
+        if(Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 2f && moveSpeed != 0) //instantly change speed for short distances such as walk -> sprint
         {
             StopAllCoroutines();
             StartCoroutine(SmoothlyLerpMoveSpeed());
