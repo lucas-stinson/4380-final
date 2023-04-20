@@ -6,10 +6,16 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     private Renderer renderer;
+    public GameManager manager;
     public float numCircles = 8;
     public int[] scores = new int[] {100, 80, 60, 50, 40, 30, 20, 10};
     private float scale;
     private bool alreadyShot = false;
+
+    private void Awake()
+    {
+        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +39,7 @@ public class Target : MonoBehaviour
             renderer.material.color = Color.green;
             //This is where the score is calculated
             Debug.Log("Score increase: " + CalculateScore(distance));
+            manager.levelScore += CalculateScore(distance);
         } else
         {
             Debug.Log("Already shot");
