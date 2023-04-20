@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bab5ff8198b51c48be813968f4e3e0e, type: 3}
   m_Name: Player Records
   m_EditorClassIdentifier: 
+  level1Complete: 0
   level1Time: 0
   level1Score: 0
+  level2Complete: 0
   level2Time: 0
   level2Score: 0
+  level3Complete: 0
   level3Time: 0
   level3Score: 0
