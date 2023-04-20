@@ -7,11 +7,14 @@ public class Shooting : MonoBehaviour
     public float fireRate = 0.5f;
     public float lastFire = 0f;
     private bool fire;
+    private AudioSource audioSource;
+    public GameObject bulletPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
         lastFire = Time.timeSinceLevelLoad;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -34,6 +37,8 @@ public class Shooting : MonoBehaviour
     {
         if(Time.timeSinceLevelLoad > lastFire + fireRate)
         {
+            audioSource.Play();
+            GameObject bullet = SpawnBullet();
             lastFire = Time.timeSinceLevelLoad;
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit))
@@ -48,10 +53,16 @@ public class Shooting : MonoBehaviour
                     //Debug.Log("Hit point: " + hitPoint + ", Target position: " + objectHit.transform.position + ", Distance: " + distance);
                     //Debug.Log("target position: " + objectHit.transform.position);
 
-                    hit.collider.gameObject.GetComponent<Target>().Shot(distance); //We pass the distance from center to the function
+                    hit.collider.gameObject.GetComponent<Target>().Shot(distance, bullet, hitPoint); //We pass the distance from center to the function. We also need to pass the bullet and hit point to track when the visual change should occur
                 }
             }
         }
         
+    }
+
+    private GameObject SpawnBullet()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation, null);
+        return bullet;
     }
 }

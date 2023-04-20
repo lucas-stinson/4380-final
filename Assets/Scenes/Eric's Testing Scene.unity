@@ -1381,6 +1381,10 @@ PrefabInstance:
       propertyPath: orientation
       value: 
       objectReference: {fileID: 1600602454}
+    - target: {fileID: 5312237723489318062, guid: 623ff5cb73b0a5545bb25326b95a92c5, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 4135553677116258179, guid: d028e4982616813458efd1b26e8bc9a6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 623ff5cb73b0a5545bb25326b95a92c5, type: 3}
 --- !u!1001 &2569349684396101056
