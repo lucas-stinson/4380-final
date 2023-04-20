@@ -63,13 +63,14 @@ public class Target : MonoBehaviour
 
     IEnumerator WaitUntilClose(float distance)
     {
-        while (distanceAway > .5)
+        while (distanceAway > .5 && shotBullet != null)
         {
             distanceAway = Vector3.Distance(hitPoint, shotBullet.transform.position);
-            yield return new WaitForSeconds(.1f);
+            yield return new WaitForSeconds(.01f);
         }
+        
         //Debug.Log("Done waiting");
-        shotBullet.GetComponent<Bullet>().Die();
+        //shotBullet.GetComponent<Bullet>().Die();
         //This is where the score is calculated
         int score = CalculateScore(distance);
         Debug.Log("Score increase: " + score);

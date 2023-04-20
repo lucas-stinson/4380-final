@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     public float bulletSpeed = 3.0f;
 
     [Tooltip("How far away from the main camera before destroying the bullet gameobject in meters.")]
-    public float destroyDistance = 20.0f;
+    public float destroyDistance = 100.0f;
 
     /// <summary>
     /// Description:
@@ -49,5 +49,19 @@ public class Bullet : MonoBehaviour
     public void Die()
     {
         Destroy(this.gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Destorying bullet");
+        Destroy(this.gameObject);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag != "Player") {
+            Debug.Log("Destorying bullet from trigger");
+            Destroy(this.gameObject);
+        }
+        
     }
 }
