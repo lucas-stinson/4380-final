@@ -7,6 +7,12 @@ public class Shooting : MonoBehaviour
     public float fireRate = 0.5f;
     public float lastFire = 0f;
     private bool fire;
+    public GameManager manager;
+
+    private void Awake()
+    {
+        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -17,10 +23,13 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetInput();
-        if(fire)
+        if (!manager.paused)
         {
-            Fire();
+            GetInput();
+            if (fire)
+            {
+                Fire();
+            }
         }
     }
 

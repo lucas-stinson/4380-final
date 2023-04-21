@@ -4,35 +4,19 @@ using UnityEngine;
 
 public class GoalAnimation : MonoBehaviour
 {
-    [Tooltip("The height difference between the resting position of the object and it's maximum or minimum height.")]
-    public float oscillationHeight = 0.5f;
-    [Tooltip("The speed at which the object oscilates up and down.")]
-    public float oscillationSpeed = 2.0f;
-    [Tooltip("The speed at which the object rotates per second (in degrees)")]
-    public float rotationSpeed = 90.0f;
-    // The starting position of the object.
+    public float amplitude = 0.5f; 
+    public float frequency = 1.0f; 
+    public float rotationSpeed = 50.0f;
     private Vector3 startPosition;
 
-    /// <summary>
-    /// Description:
-    /// When this script starts up, save the starting position of the object
-    /// Inputs: N/A
-    /// Outputs: N/A
-    /// </summary>
-    private void Start()
+    void Start()
     {
-        startPosition = transform.localPosition;
+        startPosition = transform.position;
     }
 
-    /// <summary>
-    /// Description:
-    /// Every update, rotate and move the object according to the values set for this script
-    /// Inputs: N/A
-    /// Outputs: N/A
-    /// </summary>
-    private void LateUpdate()
+    void Update()
     {
-        transform.localPosition = startPosition + (Vector3.up * oscillationHeight * Mathf.Cos(Time.timeSinceLevelLoad * oscillationSpeed));
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + Vector3.up * Time.deltaTime * rotationSpeed);
+        transform.position = startPosition + Vector3.up * Mathf.Sin(Time.time * frequency) * amplitude;
+        transform.Rotate(Vector3.right * rotationSpeed * Time.deltaTime);
     }
 }

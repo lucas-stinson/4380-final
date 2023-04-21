@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 355142013435034296}
   - component: {fileID: 355142013435034297}
   - component: {fileID: 355142013435034302}
+  - component: {fileID: 392405958}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,11 +46,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021eb968e6375414fba4fe4b4368b3e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelNumber: 0
+  pauseKey: 8
+  record: {fileID: 355142013435034302}
+  flag: {fileID: 0}
+  set: {fileID: 392405958}
+  victoryMenu: {fileID: 0}
+  targetsInLevel: 2
+  targetsHit: 0
+  levelNumber: 1
   levelTime: 0
   levelScore: 0
   timing: 0
-  record: {fileID: 355142013435034302}
+  levelComplete: 0
+  paused: 0
 --- !u!114 &355142013435034302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,3 +72,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recordData: {fileID: 11400000, guid: 7cca8539d99beed41b0a3d6f3231a7fb, type: 2}
+--- !u!114 &392405958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355142013435034303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3c30200f295ec4bb14a9a02e6f7a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  disableWhenPaused:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  enableWhenPaused:
+  - {fileID: 0}

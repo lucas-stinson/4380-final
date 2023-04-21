@@ -15,6 +15,7 @@ public class Sliding : MonoBehaviour
     public Transform playerObj;
     private Rigidbody rb;
     private PlayerMovement movement;
+    public GameManager manager;
 
     [Header("Sliding Variables")]
     public float maxSlideTime;
@@ -22,6 +23,11 @@ public class Sliding : MonoBehaviour
     private float slideTimer;
     public float slideYScale;
     private float startYScale;
+
+    private void Awake()
+    {
+        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 
     private void Start()
     {
@@ -32,16 +38,19 @@ public class Sliding : MonoBehaviour
     }
     private void Update()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        if (!manager.paused)
+        {
+            horizontalInput = Input.GetAxisRaw("Horizontal");
+            verticalInput = Input.GetAxisRaw("Vertical");
 
-        if(Input.GetKeyDown(slideKey) && (horizontalInput != 0 || verticalInput != 0))
-        {
-            StartSlide();
-        }
-        if (Input.GetKeyUp(slideKey) && movement.sliding)
-        {
-            StopSlide();
+            if (Input.GetKeyDown(slideKey) && (horizontalInput != 0 || verticalInput != 0))
+            {
+                StartSlide();
+            }
+            if (Input.GetKeyUp(slideKey) && movement.sliding)
+            {
+                StopSlide();
+            }
         }
     }
     private void FixedUpdate()

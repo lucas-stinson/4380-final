@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Transform orientation;
     public Climbing climbingScript;
+    public GameManager manager;
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
@@ -77,6 +78,12 @@ public class PlayerMovement : MonoBehaviour
         sliding,
         air
     }
+
+    private void Awake()
+    {
+        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -87,20 +94,23 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + jumpLeniency, whatisGround);
-
-        GetInput();
-        LimitSpeed();
-        StateHandler();
-
-        if(grounded)
+        if (!manager.paused)
         {
-            jumpCount = 0;
-            rb.drag = groundDrag;
-        } 
-        else
-        {
-            rb.drag = 0;
+            grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + jumpLeniency, whatisGround);
+
+            GetInput();
+            LimitSpeed();
+            StateHandler();
+
+            if (grounded)
+            {
+                jumpCount = 0;
+                rb.drag = groundDrag;
+            }
+            else
+            {
+                rb.drag = 0;
+            }
         }
     }
 

@@ -39,7 +39,7 @@ public class Target : MonoBehaviour
             renderer.material.color = Color.green;
             //This is where the score is calculated
             Debug.Log("Score increase: " + CalculateScore(distance));
-            manager.levelScore += CalculateScore(distance);
+            manager.HitTarget(CalculateScore(distance));
         } else
         {
             Debug.Log("Already shot");

@@ -45,16 +45,22 @@ public class Wallrunning : MonoBehaviour
     public CameraController cam;
     private PlayerMovement movement;
     private Rigidbody rb;
+    public GameManager manager;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        movement = GetComponent<PlayerMovement>();
+        movement = GetComponent<PlayerMovement>();     
+        manager = GameObject.Find("GameManager").GetComponent<GameManager>();       
     }
+
     private void Update()
     {
-        CheckForWall();
-        StateMachine();
+        if (!manager.paused)
+        {
+            CheckForWall();
+            StateMachine();
+        }
     }
     private void FixedUpdate()
     {

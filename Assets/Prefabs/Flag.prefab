@@ -299,7 +299,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896088449728531871}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 3
   m_Height: 12
@@ -317,8 +317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34c531f602ae435479fa74c56b430fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oscillationHeight: 0.4
-  oscillationSpeed: 1.5
+  amplitude: 0.5
+  frequency: 1
   rotationSpeed: 70
 --- !u!114 &1896088449728531843
 MonoBehaviour:
@@ -333,6 +333,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
+  complete: {fileID: 2100000, guid: 10b9ac7bc24d5cc41b815a78bbeda784, type: 2}
+  incomplete: {fileID: 2100000, guid: beb3c8990611aab499bc13bf02ae88fc, type: 2}
 --- !u!1 &1896088450406972168
 GameObject:
   m_ObjectHideFlags: 0

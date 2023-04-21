@@ -6,7 +6,7 @@ public class LevelRecords : MonoBehaviour
 {
     public LevelRecords_SO recordData;
 
-    #region("Read From Records Data")
+    #region Read From Records Data
     public bool Level1Complete
     {
         get { if (recordData != null) return recordData.level1Complete; else return false; }
@@ -23,6 +23,12 @@ public class LevelRecords : MonoBehaviour
     {
         get { if (recordData != null) return recordData.level1Score; else return 0; }
         set { recordData.level1Score = value; }
+    }
+
+    public float Level1PointsPerSecond
+    {
+        get { if (recordData != null) return recordData.level1PointsPerSecond; else return 0f; }
+        set { recordData.level1PointsPerSecond = value; }
     }
 
     public bool Level2Complete
@@ -43,6 +49,12 @@ public class LevelRecords : MonoBehaviour
         set { recordData.level2Score = value; }
     }
 
+    public float Level2PointsPerSecond
+    {
+        get { if (recordData != null) return recordData.level2PointsPerSecond; else return 0f; }
+        set { recordData.level2PointsPerSecond = value; }
+    }
+
     public bool Level3Complete
     {
         get { if (recordData != null) return recordData.level3Complete; else return false; }
@@ -60,34 +72,43 @@ public class LevelRecords : MonoBehaviour
         get { if (recordData != null) return recordData.level3Score; else return 0; }
         set { recordData.level3Score = value; }
     }
-#endregion
+
+    public float Level3PointsPerSecond
+    {
+        get { if (recordData != null) return recordData.level3PointsPerSecond; else return 0f; }
+        set { recordData.level3PointsPerSecond = value; }
+    }
+    #endregion
 
     public void UpdateRecords(int level, float time, int score)
     {
         switch(level)
         {
             case 1:
-                if(!Level1Complete || time <= Level1Time && score >= Level1Score)
+                if(!Level1Complete || score / time >= Level1PointsPerSecond)
                 {
                     Level1Complete = true;
                     Level1Time = time;
                     Level1Score = score;
+                    Level1PointsPerSecond = score / time;
                 }
                 break;
             case 2:
-                if (!Level2Complete || time <= Level1Time && score <= Level2Score)
+                if (!Level2Complete || score / time >= Level1PointsPerSecond)
                 {
                     Level2Complete = true;
                     Level2Time = time;
                     Level2Score = score;
+                    Level2PointsPerSecond = score / time;
                 }
                 break;
             case 3:
-                if (!Level3Complete || time <= Level1Time && score <= Level3Score)
+                if (!Level3Complete || score / time >= Level1PointsPerSecond)
                 {
                     Level3Complete = true;
                     Level3Time = time;
                     Level3Score = score;
+                    Level3PointsPerSecond = score / time;
                 }
                 break;
         }
