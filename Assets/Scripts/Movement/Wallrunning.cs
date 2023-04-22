@@ -132,7 +132,7 @@ public class Wallrunning : MonoBehaviour
         {
             if(movement.wallrunning)
             {
-                StopWallRun();
+                exitingWall = true;
             }
         }
     }

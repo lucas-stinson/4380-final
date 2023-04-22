@@ -14,6 +14,8 @@ public class PlayerJail : MonoBehaviour
 
     public GameObject player;
 
+    public static bool skipIntro;
+
     private void Awake()
     {
         manager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -21,7 +23,9 @@ public class PlayerJail : MonoBehaviour
 
     private void Start()
     {
+        delay = skipIntro ? 0 : delay;
         Invoke("StartLevel", delay);
+        
     }
 
     private void Update()
@@ -40,5 +44,10 @@ public class PlayerJail : MonoBehaviour
         player.transform.position = startPoint.position;
         manager.StartTimer();
         Destroy(this.gameObject);
+    }
+
+    public void ToggleSkip(bool input)
+    {
+        skipIntro = input;
     }
 }

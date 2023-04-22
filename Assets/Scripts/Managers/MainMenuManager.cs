@@ -21,4 +21,9 @@ public class MainMenuManager : MonoBehaviour
         uiPages[pageNum].SetActive(true);
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
 }
