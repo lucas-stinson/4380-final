@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
         {
             //play level 3 complete audio
             GameObject.Find("LevelEndAudio").GetComponent<AudioSource>().Play();
-            GameObject.Find("Music").GetComponent<AudioSource>().Play();
+            GameObject.Find("Music").GetComponent<AudioSource>().volume = 0.25f;
         }
     }
 
