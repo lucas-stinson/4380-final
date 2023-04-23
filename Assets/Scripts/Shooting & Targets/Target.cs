@@ -22,6 +22,7 @@ public class Target : MonoBehaviour
     public AudioClip greenEffect;
     public AudioClip yellowEffect;
     public AudioClip redEffect;
+    public AudioClip RepeatShot;
     private void Awake()
     {
         manager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -31,7 +32,7 @@ public class Target : MonoBehaviour
     {
         renderer= GetComponent<Renderer>();
         audioSource= GetComponent<AudioSource>();
-        scale = transform.localScale.x;
+        scale = transform.lossyScale.x; //we need it to be a global scale so that it's the real size
         Debug.Log(scale);
     }
 
@@ -62,6 +63,8 @@ public class Target : MonoBehaviour
         } else
         {
             Debug.Log("Already shot");
+            audioSource.clip = RepeatShot;
+            audioSource.Play();
         }
         
     }

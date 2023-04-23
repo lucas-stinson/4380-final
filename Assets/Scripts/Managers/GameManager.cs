@@ -79,6 +79,12 @@ public class GameManager : MonoBehaviour
 
         victoryMenu.LevelFinish(levelNumber, levelTime, levelScore);
         record.UpdateRecords(levelNumber, levelTime, levelScore);
+        if(levelNumber == 3)
+        {
+            //play level 3 complete audio
+            GameObject.Find("LevelEndAudio").GetComponent<AudioSource>().Play();
+            GameObject.Find("Music").GetComponent<AudioSource>().Play();
+        }
     }
 
     public void HitTarget(int score)

@@ -104,6 +104,7 @@ MonoBehaviour:
   greenEffect: {fileID: 8300000, guid: b9f4f08d0988eba449d95f5d9f4fd86e, type: 3}
   yellowEffect: {fileID: 8300000, guid: 281429c08d69a5c4787f0c318cbab107, type: 3}
   redEffect: {fileID: 8300000, guid: 6da059dded6e98e4f9bc0b40402d6c6b, type: 3}
+  RepeatShot: {fileID: 8300000, guid: fc2f3be016128ff4396b703dead15a57, type: 3}
 --- !u!64 &2569349683862924875
 MeshCollider:
   m_ObjectHideFlags: 0
