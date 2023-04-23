@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7378646255385672873}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,6 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {fileID: 2826700422569514166}
   climbingScript: {fileID: 7378646255385672873}
+  manager: {fileID: 0}
   jumpKey: 32
   sprintKey: 304
   crouchKey: 99
@@ -77,11 +78,12 @@ MonoBehaviour:
   crouching: 0
   climbing: 0
   walkSpeed: 6
-  sprintSpeed: 9
-  slideSpeed: 30
-  climbSpeed: 1
-  wallrunSpeed: 8
+  sprintSpeed: 10
+  slideSpeed: 10
+  climbSpeed: 4
+  wallrunSpeed: 10
   groundDrag: 5
+  moveSpeed: 0
   jumpPower: 9
   jumpCooldown: 0.25
   airMultiplier: 0.5
@@ -112,6 +114,7 @@ MonoBehaviour:
   slideKey: 306
   orientation: {fileID: 2826700422569514166}
   playerObj: {fileID: 2826700422912378729}
+  manager: {fileID: 0}
   maxSlideTime: 1
   slideForce: 300
   slideYScale: 0.5
@@ -148,6 +151,7 @@ MonoBehaviour:
   minJumpHeight: 2
   orientaiton: {fileID: 2826700422569514166}
   cam: {fileID: 0}
+  manager: {fileID: 0}
 --- !u!114 &7378646255385672873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +170,7 @@ MonoBehaviour:
   whatIsWall:
     serializedVersion: 2
     m_Bits: 118784
+  manager: {fileID: 0}
   climbSpeed: 6
   maxClimbTime: 1
   climbing: 0
@@ -190,7 +195,7 @@ GameObject:
   - component: {fileID: 2826700422569514166}
   m_Layer: 0
   m_Name: LookAngle
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,7 +229,7 @@ GameObject:
   - component: {fileID: 2826700422912378730}
   m_Layer: 0
   m_Name: Player Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -319,7 +324,7 @@ GameObject:
   - component: {fileID: 2826700423332811853}
   m_Layer: 0
   m_Name: CameraPosition
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

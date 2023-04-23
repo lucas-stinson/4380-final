@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Transform orientation;
     public Climbing climbingScript;
+    public GameManager manager;
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
@@ -20,12 +21,13 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Movement Variables")]
     public float walkSpeed;
-    public float sprintSpeed;
-    private float moveSpeed;
+    public float sprintSpeed; 
     public float slideSpeed;
     public float climbSpeed;
     public float wallrunSpeed;
     public float groundDrag;
+
+    public float moveSpeed;
 
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
@@ -76,6 +78,12 @@ public class PlayerMovement : MonoBehaviour
         sliding,
         air
     }
+
+    private void Awake()
+    {
+        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -86,20 +94,23 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + jumpLeniency, whatisGround);
-
-        GetInput();
-        LimitSpeed();
-        StateHandler();
-
-        if(grounded)
+        if (!manager.paused)
         {
-            jumpCount = 0;
-            rb.drag = groundDrag;
-        } 
-        else
-        {
-            rb.drag = 0;
+            grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + jumpLeniency, whatisGround);
+
+            GetInput();
+            LimitSpeed();
+            StateHandler();
+
+            if (grounded)
+            {
+                jumpCount = 0;
+                rb.drag = groundDrag;
+            }
+            else
+            {
+                rb.drag = 0;
+            }
         }
     }
 
@@ -181,7 +192,7 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.air;
         }
 
-        if(Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && moveSpeed != 0) //instantly change speed for short distances such as walk -> sprint
+        if(Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 2f && moveSpeed != 0) //instantly change speed for short distances such as walk -> sprint
         {
             StopAllCoroutines();
             StartCoroutine(SmoothlyLerpMoveSpeed());
