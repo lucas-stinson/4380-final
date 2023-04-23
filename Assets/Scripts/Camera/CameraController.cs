@@ -17,6 +17,9 @@ public class CameraController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        sensX = CameraOptions.currentSensX;        
+        sensY = CameraOptions.currentSensY;        
     }
 
     private void Update()
