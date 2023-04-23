@@ -19,7 +19,7 @@ public class CameraController : MonoBehaviour
         Cursor.visible = false;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         float mouseX = Input.GetAxisRaw("Mouse X") * sensX * Time.deltaTime;
         float mouseY = Input.GetAxisRaw("Mouse Y") * sensY * Time.deltaTime;

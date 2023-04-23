@@ -17,10 +17,15 @@ public class UpdateRecordText : MonoBehaviour
 
     private void Start()
     {
-        switch(levelNum)
+        UpdateText();
+    }
+
+    public void UpdateText()
+    {
+        switch (levelNum)
         {
             case 1:
-                if(recordData.Level1Complete)
+                if (recordData.Level1Complete)
                 {
                     int seconds = Mathf.FloorToInt(recordData.Level1Time);
                     int centiseconds = Mathf.FloorToInt((recordData.Level1Time * 100) % 100);

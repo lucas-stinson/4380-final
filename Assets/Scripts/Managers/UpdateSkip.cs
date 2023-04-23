@@ -10,6 +10,7 @@ public class UpdateSkip : MonoBehaviour
     private void Awake()
     {
         button = GetComponent<Toggle>();
+        button.isOn = PlayerJail.skipIntro;
     }
 
     public void UpdateSkipLevel()
