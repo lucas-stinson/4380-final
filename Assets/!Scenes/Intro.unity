@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276807, g: 0.21589197, b: 0.29782572, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -31335,6 +31335,22 @@ PrefabInstance:
       propertyPath: points.Array.data[3].x
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3421203989313638971, guid: 40aa66ff73e78d94991f64c8bfd60947, type: 3}
+      propertyPath: audioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6deb1f57991eb974e81df68a5c4d2088, type: 3}
+    - target: {fileID: 3421203989313638971, guid: 40aa66ff73e78d94991f64c8bfd60947, type: 3}
+      propertyPath: audioClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8f1220bf1a660d649a5c9aa682ef0e40, type: 3}
+    - target: {fileID: 3421203989313638971, guid: 40aa66ff73e78d94991f64c8bfd60947, type: 3}
+      propertyPath: targetClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: d27d6b3447fe07d4abc6e04022acae1c, type: 3}
+    - target: {fileID: 3421203989313638971, guid: 40aa66ff73e78d94991f64c8bfd60947, type: 3}
+      propertyPath: targetClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0639aae930f10944786f8b983d1a1377, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40aa66ff73e78d94991f64c8bfd60947, type: 3}
 --- !u!1 &3617412752258497497
