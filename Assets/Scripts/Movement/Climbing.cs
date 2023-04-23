@@ -9,6 +9,7 @@ public class Climbing : MonoBehaviour
     public Rigidbody rb;
     public PlayerMovement movement;
     public LayerMask whatIsWall;
+    public GameManager manager;
 
     [Header("Climbing")]
     public float climbSpeed;
@@ -42,14 +43,22 @@ public class Climbing : MonoBehaviour
     public float exitWallTime;
     private float exitWallTimer;
 
+    private void Awake()
+    {
+        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
     private void Update()
     {
-        WallCheck();
-        StateMachine();
-
-        if(climbing && !exitingWall)
+        if (!manager.paused)
         {
-            ClimbMovement();
+            WallCheck();
+            StateMachine();
+
+            if (climbing && !exitingWall)
+            {
+                ClimbMovement();
+            }
         }
     }
 
